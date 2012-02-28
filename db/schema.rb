@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120228184356) do
+ActiveRecord::Schema.define(:version => 20120228185228) do
 
   create_table "forem_categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(:version => 20120228184356) do
   add_index "forem_views", ["user_id"], :name => "index_forem_views_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",    :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "email",                               :default => "",               :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",               :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20120228184356) do
     t.string   "name"
     t.boolean  "forem_admin",                         :default => false
     t.boolean  "boolean",                             :default => false
+    t.string   "forem_state",                         :default => "pending_review"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
